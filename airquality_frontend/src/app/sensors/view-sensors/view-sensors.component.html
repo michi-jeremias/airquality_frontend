@@ -1,6 +1,8 @@
 <p>view-sensors works!</p>
 <ul>
-    <li *ngFor="let sensor of sensorData">
+    <!-- <li *ngFor="let sensor of sensorData">
         {{ sensor.subject }}: {{ sensor.value}}{{ sensor.unit }}
-    </li>
+    </li> -->
+    <li>{{sensorData | json}}</li>
+    <button (click)="getSensorData()">Get sensor data</button>
 </ul>

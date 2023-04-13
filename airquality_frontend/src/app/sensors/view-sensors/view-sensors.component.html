@@ -3,6 +3,6 @@
     <!-- <li *ngFor="let sensor of sensorData">
         {{ sensor.subject }}: {{ sensor.value}}{{ sensor.unit }}
     </li> -->
-    <li>{{sensorData | json}}</li>
-    <button (click)="getSensorData()">Get sensor data</button>
+    <li>{{message$ | async }}</li>
+    <button (click)="sendMessage()">Send halloooo</button>
 </ul>

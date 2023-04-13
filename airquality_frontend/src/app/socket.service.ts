@@ -1,28 +1,25 @@
 import { Injectable } from "@angular/core";
-import io from "socket.io-client";
-import { BehaviorSubject, Observable } from "rxjs";
+// import io from "socket.io-client";
+import * as socketIO from "socket.io-client";
+import { fromEvent } from "rxjs";
 
 @Injectable({
   providedIn: "root",
 })
 export class SocketService {
-  // public sensorData$: BehaviorSubject<SensorData[]> = new BehaviorSubject<SensorData[]>([]);
-  // public sensorDataJson$: BehaviorSubject<{}> = new BehaviorSubject<{}>({});
-  public sensorDataJson$: BehaviorSubject<string> = new BehaviorSubject<string>("ii");
-  constructor() {}
-
-  socket = io("http://localhost:5000");
-
-  public sendDataRequest() {
-    this.socket.emit("datarequest_from_frontend");
+  constructor() {
+    this.socket = socketIO.io("ws://localhost:5000");
   }
 
-  public getSensorData = () => {
-    this.socket.on("sensoradata", (sensordata) => {
-      this.sensorDataJson$.next(sensordata);
-    });
-    return this.sensorDataJson$.asObservable();
-  };
+  private socket;
+
+  sendMessage(message: string) {
+    this.socket.emit("message", message);
+  }
+
+  onMessage() {
+    return fromEvent(this.socket, "message");
+  }
 }
 
 export interface SensorData {

@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { BehaviorSubject, Observable } from "rxjs";
 // import sensorData from "../../../../sensor_data.json";
 // import SensorData from "./data.json";
 import { SocketService, SensorData } from "src/app/socket.service";
@@ -9,40 +10,19 @@ import { SocketService, SensorData } from "src/app/socket.service";
   styleUrls: ["./view-sensors.component.scss"],
 })
 export class ViewSensorsComponent {
-  // sensorData: SensorData[] = [];
-  // sensorData: {} = {};
-  sensorData: string = "hu";
-
-  public getSensorData() {
-    this.socketService.sendDataRequest();
-    this.sensorData = "";
-  }
-
   constructor(private socketService: SocketService) {}
 
-  ngOnInit() {
-    // this.socketService.getSensorData().subscribe((sensordata: SensorData[]) => {
-    //   this.sensorData = sensordata;
-    // });
+  data$: Observable<{}> = new Observable();
+  message$: Observable<any> = new Observable();
 
-    this.socketService.getSensorData().subscribe((sensordata: string) => {
-      this.sensorData = sensordata;
-    });
+  public getMessage() {}
+
+  public sendMessage() {
+    this.socketService.sendMessage("komm brudi tanz");
   }
-  ngOnChange() {
-    // this.socketService.getSensorData().subscribe((sensordata: SensorData[]) => {
-    //   this.sensorData = sensordata;
-    // });
 
-    this.socketService.getSensorData().subscribe((sensordata: string) => {
-      this.sensorData = sensordata;
-    });
+  ngOnInit() {
+    this.message$ = this.socketService.onMessage();
+    // this.data$ = this.socketService.onData();
   }
 }
-
-// interface SensorData {
-//   name: String;
-//   subject: String;
-//   unit: String;
-//   value: Number;
-// }

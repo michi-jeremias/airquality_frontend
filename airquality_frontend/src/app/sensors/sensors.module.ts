@@ -1,6 +1,6 @@
-import {NgModule} from "@angular/core";
-import {CommonModule} from "@angular/common";
-import {ViewSensorsComponent} from "./view-sensors/view-sensors.component";
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { ViewSensorsComponent } from "./view-sensors/view-sensors.component";
 
 @NgModule({
   declarations: [ViewSensorsComponent],

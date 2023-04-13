@@ -1,8 +1,27 @@
 <p>view-sensors works!</p>
+<ng-container *ngIf="localData">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Gender</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let datapoint of localData">
+                <td>{{ datapoint.name }}</td>
+                <td>{{ datapoint.subject}}</td>
+                <td>{{ datapoint.unit}}</td>
+                <td>{{ datapoint.value}}</td>
+            </tr>
+        </tbody>
+    </table>
+</ng-container>
 <ul>
-    <!-- <li *ngFor="let sensor of sensorData">
-        {{ sensor.subject }}: {{ sensor.value}}{{ sensor.unit }}
-    </li> -->
-    <li>{{message$ | async }}</li>
+    <li>Msg: {{message$ | async }}</li>
+    <li>Msg2: {{message2 }}</li>
+    <li>{{data$ | async }}</li>
     <button (click)="sendMessage()">Send halloooo</button>
 </ul>

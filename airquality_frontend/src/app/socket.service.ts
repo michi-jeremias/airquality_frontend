@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 // import io from "socket.io-client";
 import * as socketIO from "socket.io-client";
-import { BehaviorSubject, Observable, fromEvent } from "rxjs";
+import { BehaviorSubject, Observable, fromEvent, map } from "rxjs";
 
 @Injectable({
   providedIn: "root",
@@ -31,8 +31,7 @@ export class SocketService {
   }
 
   onData(): Observable<SensorData[]> {
-    return fromEvent<SensorData[]>(this.socket, "on_data");
-    // return fromEvent<string>(this.socket, "on_data");
+    return fromEvent(this.socket, "on_data").pipe(map((value: string) => JSON.parse(value)));
   }
 }
 

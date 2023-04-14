@@ -1,12 +1,14 @@
 <p>view-sensors works!</p>
+<h2>as json</h2>
+{{localData | json }}
 <ng-container *ngIf="localData">
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Name</th>
-                <th>Email</th>
-                <th>Gender</th>
+                <th>Subject</th>
+                <th>Unit</th>
+                <th>Value</th>
             </tr>
         </thead>
         <tbody>

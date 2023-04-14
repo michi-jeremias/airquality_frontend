@@ -12,7 +12,7 @@ import { SocketService, SensorData } from "src/app/socket.service";
 export class ViewSensorsComponent {
   constructor(private socketService: SocketService) {}
 
-  localData: SensorData[] = [{ name: "a", subject: "b", unit: "c", value: 1.0 }];
+  localData: SensorData[] = [];
   // data$: Observable<{}> = new Observable();
   data$: Observable<SensorData[]> = new Observable();
   // data$: Observable<string> = new Observable();
@@ -35,7 +35,18 @@ export class ViewSensorsComponent {
     });
     // this.message2$ = this.socketService.message2$;
 
-    this.socketService.onData().subscribe((data) => (this.localData = data));
+    // this.socketService.onData().subscribe((data) => (this.localData = data));
+    this.socketService.onData().subscribe((datastream) => {
+      let somearray = [];
+      this.localData = [];
+      console.log(typeof datastream);
+      for (let entry of datastream) {
+        // let sensorDataEntry: SensorData = entry;
+        console.log(entry);
+        this.localData.push({ name: entry.name, subject: entry.subject, unit: entry.unit, value: entry.value });
+        // console.log("a");
+      }
+    });
     // this.data$ = this.socketService.onData();
 
     // this.socketService.onData().subscribe((data) => {

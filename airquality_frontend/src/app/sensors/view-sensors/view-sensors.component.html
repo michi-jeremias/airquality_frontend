@@ -1,7 +1,8 @@
 <p>view-sensors works!</p>
-<h2>as json</h2>
-{{localData | json }}
-<ng-container *ngIf="localData">
+<!-- <h2>as json</h2>
+{{data$| json }} -->
+<h2>yoyo</h2>
+<ng-container *ngIf="data$">
     <table class="table table-striped">
         <thead>
             <tr>
@@ -12,7 +13,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let datapoint of localData">
+            <tr *ngFor="let datapoint of data$">
                 <td>{{ datapoint.name }}</td>
                 <td>{{ datapoint.subject}}</td>
                 <td>{{ datapoint.unit}}</td>
@@ -22,8 +23,19 @@
     </table>
 </ng-container>
 <ul>
+    <!-- Display the Observable directly with the async pipe -->
     <li>Msg: {{message$ | async }}</li>
-    <li>Msg2: {{message2 }}</li>
-    <li>{{data$ | async }}</li>
     <button (click)="sendMessage()">Send halloooo</button>
 </ul>
+
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>Temperature</mat-card-title>
+        <mat-card-subtitle>Home</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <a>24</a>
+        <a>°C</a>
+    </mat-card-content>
+
+</mat-card>

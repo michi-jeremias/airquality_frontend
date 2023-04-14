@@ -1,7 +1,5 @@
 import { Component } from "@angular/core";
-import { BehaviorSubject, Observable } from "rxjs";
-// import sensorData from "../../../../sensor_data.json";
-// import SensorData from "./data.json";
+import { Observable } from "rxjs";
 import { SocketService, SensorData } from "src/app/socket.service";
 
 @Component({
@@ -12,54 +10,35 @@ import { SocketService, SensorData } from "src/app/socket.service";
 export class ViewSensorsComponent {
   constructor(private socketService: SocketService) {}
 
-  localData: SensorData[] = [];
-  // data$: Observable<{}> = new Observable();
-  data$: Observable<SensorData[]> = new Observable();
-  // data$: Observable<string> = new Observable();
-  message$: Observable<any> = new Observable();
-  message2: string = "";
-
-  public getJson(str: Observable<string>) {}
-
-  public getMessage() {}
+  data$: SensorData[] = [];
+  message$: Observable<any> = this.socketService.onMessage();
+  socketConnected: boolean = false;
+  // message$: string = "";  // Initialize when subscribing
 
   public sendMessage() {
     this.socketService.sendMessage("komm brudi tanz");
   }
 
   ngOnInit() {
-    this.message$ = this.socketService.onMessage();
+    // We can subscribe here and turn message$ into a string.
+    // Or we can just display the Observable directly in the
+    // html with the async pipe: {{ message$ | async }}
+    // this.socketService.onMessage().subscribe((message) => (this.message$ = message));
 
-    this.socketService.onMessage2().subscribe((message: string) => {
-      this.message2 = message;
-    });
-    // this.message2$ = this.socketService.message2$;
+    this.socketConnected = this.socketService.isConnected();
+    console.log(this.socketConnected);
 
-    // this.socketService.onData().subscribe((data) => (this.localData = data));
-    this.socketService.onData().subscribe((datastream) => {
-      let somearray = [];
-      this.localData = [];
-      console.log(typeof datastream);
-      for (let entry of datastream) {
-        // let sensorDataEntry: SensorData = entry;
-        console.log(entry);
-        this.localData.push({ name: entry.name, subject: entry.subject, unit: entry.unit, value: entry.value });
-        // console.log("a");
+    this.socketService.onData().subscribe(
+      (datastream) => {
+        this.data$ = [];
+        // console.log(typeof datastream);
+        for (let entry of datastream) {
+          this.data$.push({ name: entry.name, subject: entry.subject, unit: entry.unit, value: entry.value });
+        }
+      },
+      (err) => {
+        console.log("could not reach socket server");
       }
-    });
-    // this.data$ = this.socketService.onData();
-
-    // this.socketService.onData().subscribe((data) => {
-    //   for (let datapoint of data) {
-    //     this.localData.push(datapoint);
-    //   }
-    // });
-  }
-
-  ngOnChange() {
-    this.socketService.onData().subscribe((data) => (this.localData = data));
-    // this.data$.subscribe((data) => {
-    //   this.localData = data;
-    // });
+    );
   }
 }

@@ -9,7 +9,8 @@ export class SocketService {
   private socket;
 
   constructor() {
-    this.socket = socketIO.io("ws://localhost:5000");
+    this.socket = socketIO.io("ws://127.0.0.1:5000");
+    // this.socket = socketIO.io("ws://localhost:5000");
   }
 
   sendMessage(message: string) {

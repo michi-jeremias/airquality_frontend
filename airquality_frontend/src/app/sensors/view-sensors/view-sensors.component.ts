@@ -10,6 +10,8 @@ import { SocketService, SensorData } from "src/app/socket.service";
 export class ViewSensorsComponent {
   constructor(private socketService: SocketService) {}
 
+  scaleFactor: number = 0.8; // Initial scale factor value (adjust as needed)
+
   data$: SensorData[] = [];
   message$: Observable<any> = this.socketService.onMessage();
   socketConnected: boolean = false;

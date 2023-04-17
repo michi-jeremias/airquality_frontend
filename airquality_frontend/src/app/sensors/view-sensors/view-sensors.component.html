@@ -1,7 +1,6 @@
-<p>view-sensors works!</p>
 <!-- <h2>as json</h2>
-{{data$| json }} -->
-<h2>yoyo</h2>
+{{data$ | json }} -->
+<p>Last update: {{message$ | async }}<p>
 <ng-container *ngIf="data$">
     <table class="table table-striped">
         <thead>
@@ -24,10 +23,9 @@
 </ng-container>
 <ul>
     <!-- Display the Observable directly with the async pipe -->
-    <li>Msg: {{message$ | async }}</li>
-    <button (click)="sendMessage()">Send halloooo</button>
+    <!-- <button (click)="sendMessage()">Send halloooo</button> -->
 </ul>
-
+<!--
 <mat-card class="example-card">
     <mat-card-header>
         <mat-card-title>Temperature</mat-card-title>
@@ -38,4 +36,4 @@
         <a>°C</a>
     </mat-card-content>
 
-</mat-card>
+</mat-card> -->

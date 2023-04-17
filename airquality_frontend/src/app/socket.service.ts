@@ -31,8 +31,8 @@ export class SocketService {
 }
 
 export interface SensorData {
-  name: String;
-  subject: String;
-  unit: String;
-  value: Number;
+  name: string;
+  subject: string;
+  unit: string;
+  value: number;
 }

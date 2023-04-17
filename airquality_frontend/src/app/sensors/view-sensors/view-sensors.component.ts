@@ -32,8 +32,11 @@ export class ViewSensorsComponent {
       (datastream) => {
         this.data$ = [];
         // console.log(typeof datastream);
+        // console.log(this.data$[0]);
+
         for (let entry of datastream) {
-          this.data$.push({ name: entry.name, subject: entry.subject, unit: entry.unit, value: entry.value });
+          let a: SensorData = { name: entry.name, subject: entry.subject, unit: entry.unit, value: entry.value };
+          this.data$.push(a);
         }
       },
       (err) => {

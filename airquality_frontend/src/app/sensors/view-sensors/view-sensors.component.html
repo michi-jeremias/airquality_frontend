@@ -3,37 +3,22 @@
 <p>Last update: {{message$ | async }}<p>
 <ng-container *ngIf="data$">
     <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Subject</th>
-                <th>Unit</th>
-                <th>Value</th>
-            </tr>
-        </thead>
         <tbody>
             <tr *ngFor="let datapoint of data$">
-                <td>{{ datapoint.name }}</td>
-                <td>{{ datapoint.subject}}</td>
-                <td>{{ datapoint.unit}}</td>
-                <td>{{ datapoint.value}}</td>
+
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <td class="sensor-card-name">{{ datapoint.subject }} ({{ datapoint.name }})</td>
+                        <!-- <p>{{ datapoint.subject }} ({{ datapoint.name }})</p> -->
+                    </mat-card-header>
+                    <mat-card-content>
+                        <mat-card-title >
+                            <td class="sensor-card-value">{{ datapoint.value | number: '1.0-0' }}</td>
+                            <td class="sensor-card-unit">{{ datapoint.unit }}</td>
+                        </mat-card-title>
+                    </mat-card-content>
+                </mat-card>
             </tr>
         </tbody>
     </table>
 </ng-container>
-<ul>
-    <!-- Display the Observable directly with the async pipe -->
-    <!-- <button (click)="sendMessage()">Send halloooo</button> -->
-</ul>
-<!--
-<mat-card class="example-card">
-    <mat-card-header>
-        <mat-card-title>Temperature</mat-card-title>
-        <mat-card-subtitle>Home</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-        <a>24</a>
-        <a>°C</a>
-    </mat-card-content>
-
-</mat-card> -->

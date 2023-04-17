@@ -1,0 +1,27 @@
+.example-card {
+    min-width: 220px;
+    max-width: 220px;
+}
+
+mat-card {
+    font-family: "Unica One", sans-serif;
+        color: #e0e0e0;
+    .sensor-card-value {
+        font-size: 64px;
+        text-align: right;
+        min-width: 154px;
+    }
+    .sensor-card-unit{
+        font-size: 14px;
+        text-align: left;
+        vertical-align: top;
+        min-width: 66px;
+        max-width: 66px;
+    }
+    .sensor-card-name{
+        font-size: 10px;
+        text-align: left;
+        // padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+}

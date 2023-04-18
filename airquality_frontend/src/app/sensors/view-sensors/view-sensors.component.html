@@ -1,27 +1,30 @@
 <p>Last update: {{ message$ | async }}</p>
-<ng-container *ngIf="data$">
-    <table class="table table-striped">
-        <tbody>
-            <tr *ngFor="let datapoint of data$">
-                <mat-card
-                    [style.width]="'calc(' + scaleFactor * 100 + 'vw - 12px)'"
-                    [style.height]="'calc(' + (scaleFactor * 100) / 3 + 'vh - 0px)'"
-                >
-                    <mat-card-header>
-                        <p>
-                            <span class="sensor-card-name">{{ datapoint.subject }}</span>
-                            <span class="sensor-card-unit">{{ datapoint.unit }}</span>
+<div>
+    <ng-container *ngIf="data$">
+        <table class="table table-striped">
+            <tbody>
+                <tr *ngFor="let datapoint of data$">
+                    <!-- <mat-card
+                        [style.width]="'calc(' + scaleFactor * 100 + 'vw - 12px)'"
+                        [style.height]="'calc(' + (scaleFactor * 100) / 3 + 'vh - 0px)'"
+                    > -->
+                    <mat-card>
+                        <mat-card-header>
+                            <div>
+                                <span class="sensor-card-name">{{ datapoint.subject }}</span>
+                                <span class="sensor-card-unit">{{ datapoint.unit }}</span>
+                            </div>
+                        </mat-card-header>
+                        <mat-card-subtitle> </mat-card-subtitle>
+                        <p class="sensor-card-value-unit">
+                            <br />
+                            <br />
+                            <br />
+                            <span class="sensor-card-value">{{ datapoint.value | number : "1.0-0" }}</span>
                         </p>
-                    </mat-card-header>
-                    <mat-card-subtitle> </mat-card-subtitle>
-                    <p class="sensor-card-value-unit">
-                        <br />
-                        <br />
-                        <br />
-                        <span class="sensor-card-value">{{ datapoint.value | number : "1.0-0" }}</span>
-                    </p>
-                </mat-card>
-            </tr>
-        </tbody>
-    </table>
-</ng-container>
+                    </mat-card>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+</div>

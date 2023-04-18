@@ -9,8 +9,8 @@ export class SocketService {
     private socket;
 
     constructor() {
-        this.socket = socketIO.io("ws://raspberrypi:5000");
-        // this.socket = socketIO.io("ws://localhost:5000");
+        // this.socket = socketIO.io("http://raspberrypi:5000");
+        this.socket = socketIO.io("ws://localhost:5000");
     }
 
     sendMessage(message: string) {

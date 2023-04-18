@@ -3,6 +3,14 @@
     // max-width: 220px;
 }
 
+.container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 mat-card {
     font-family: "Unica One", sans-serif;
     color: #e0e0e0;
@@ -29,8 +37,4 @@ mat-card {
     .sensor-card-value-unit{
         text-align: right;
     }
-}
-
-.landscape {
-
 }

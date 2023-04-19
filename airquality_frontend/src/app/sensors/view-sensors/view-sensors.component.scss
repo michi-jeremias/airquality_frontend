@@ -10,13 +10,15 @@
     align-items: center;
 }
 
+.message-text {
+    font-family: "Unica One", sans-serif;
+}
 
 mat-card {
     font-family: "Unica One", sans-serif;
-    color: #e0e0e0;
-    width: 380px;
-    height: 200px;
-    margin-left: 30px;
+    width: 200px;
+    // height: 200px;
+    // margin-left: 30px;
 
     .sensor-card-value {
         font-size: 18vh;
@@ -24,17 +26,17 @@ mat-card {
         // min-width: 154px;
     }
     .sensor-card-unit{
-        font-size: 3vh;
+    //     font-size: 3vh;
         text-align: right;
-        vertical-align: top;
-        min-width: 30%;
-        max-width: 30%;
+        // vertical-align: top;
+        // min-width: 30%;
+        // max-width: 30%;
         // padding: 33px;
     }
     .sensor-card-name{
-        font-size: 3vh;
+        // font-size: 3vh;
         text-align: left;
-        padding-bottom: 0.1rem;
+        // padding-bottom: 0.1rem;
     }
 
     .sensor-card-value-unit{

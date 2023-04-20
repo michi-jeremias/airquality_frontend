@@ -14,32 +14,66 @@
     font-family: "Unica One", sans-serif;
 }
 
-mat-card {
+// mat-card {
+//     font-family: "Unica One", sans-serif;
+//     // font-family: "Titillium Web:weight", sans-serif;
+//     width: 200px;
+//     // height: 200px;
+//     // margin-left: 30px;
+
+//     .sensor-card-value {
+//         font-size: 18vh;
+//         text-align: right;
+//         // min-width: 154px;
+//     }
+//     .sensor-card-unit{
+//     //     font-size: 3vh;
+//         text-align: right;
+//         // vertical-align: top;
+//         // min-width: 30%;
+//         // max-width: 30%;
+//         // padding: 33px;
+//     }
+//     .sensor-card-name{
+//         // font-size: 3vh;
+//         text-align: left;
+//         // padding-bottom: 0.1rem;
+//     }
+
+//     .sensor-card-value-unit{
+//         text-align: right;
+//     }
+// }
+
+mat-card-content {
+    text-align: right;
+    // font-size: 80px;
+    font-size: 16vh;
+}
+
+.card {
+    flex-grow: 1;
+    // min-width: 200px;
+    min-width: 40vh;
+    max-height: 28vh;
+    margin: 1vh;
+}
+
+.title-subtitle {
+    font-size: 1.5vh;
+}
+
+.card-container {
+
     font-family: "Unica One", sans-serif;
-    width: 200px;
-    // height: 200px;
-    // margin-left: 30px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-    .sensor-card-value {
-        font-size: 18vh;
-        text-align: right;
-        // min-width: 154px;
-    }
-    .sensor-card-unit{
-    //     font-size: 3vh;
-        text-align: right;
-        // vertical-align: top;
-        // min-width: 30%;
-        // max-width: 30%;
-        // padding: 33px;
-    }
-    .sensor-card-name{
-        // font-size: 3vh;
-        text-align: left;
-        // padding-bottom: 0.1rem;
-    }
-
-    .sensor-card-value-unit{
-        text-align: right;
+@media (max-width: 767px) {
+    .card {
+        max-width: 80%; /* Change to a smaller value if needed */
     }
 }

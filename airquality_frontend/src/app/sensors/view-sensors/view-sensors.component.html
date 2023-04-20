@@ -1,8 +1,7 @@
 <p class="message-text">Last update: {{ message$ | async }}</p>
 
-<div>
+<!-- <div>
     <ng-container *ngIf="data$">
-        <!-- <mat-grid-list cols="1" rowHeight="2.5:1"> -->
         <mat-grid-list cols="1" rowHeight="200px">
             <mat-grid-tile *ngFor="let datapoint of data$">
                 <mat-card>
@@ -15,11 +14,32 @@
                             {{ datapoint.unit }}
                         </mat-card-subtitle>
                     </mat-card-header>
-                    <mat-card-content style="text-align: right; font-size: 64px">
+                    <mat-card-content>
                         {{ datapoint.value | number : "1.0-0" }}
                     </mat-card-content>
                 </mat-card>
             </mat-grid-tile>
         </mat-grid-list>
+    </ng-container>
+</div> -->
+
+<div class="card-container">
+    <ng-container *ngIf="data$">
+        <!-- <mat-grid-list cols="1" rowHeight="2.5:1"> -->
+        <!-- <mat-grid-list cols="1" rowHeight="200px" cols.gt-sm="3"> -->
+        <mat-card class="card" *ngFor="let datapoint of data$">
+            <mat-card-header>
+                <mat-card-title class="title-subtitle">
+                    {{ datapoint.subject }}
+                </mat-card-title>
+
+                <mat-card-subtitle class="title-subtitle">
+                    {{ datapoint.unit }}
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                {{ datapoint.value | number : "1.0-0" }}
+            </mat-card-content>
+        </mat-card>
     </ng-container>
 </div>

@@ -26,6 +26,38 @@ export class ViewSensorsComponent {
         );
     }
 
+    getQualityClass(subject: string, value: number): string {
+        // return "high-quality";
+        switch (true) {
+            case subject.toLowerCase() == "co2" && value <= 800:
+                return "high-quality";
+            case subject.toLowerCase() == "co2" && value <= 1000:
+                return "averate-quality";
+            case subject.toLowerCase() == "co2" && value <= 1400:
+                return "moderate-quality";
+            case subject.toLowerCase() == "co2" && value > 1400:
+                return "low-quality";
+            case subject.toLowerCase() == "temperature" && value <= 800:
+                return "high-quality";
+            case subject.toLowerCase() == "temperature" && value <= 1000:
+                return "averate-quality";
+            case subject.toLowerCase() == "temperature" && value <= 1400:
+                return "moderate-quality";
+            case subject.toLowerCase() == "temperature" && value > 1400:
+                return "low-quality";
+            case subject.toLowerCase() == "humidity" && value <= 800:
+                return "high-quality";
+            case subject.toLowerCase() == "humidity" && value <= 1000:
+                return "averate-quality";
+            case subject.toLowerCase() == "humidity" && value <= 1400:
+                return "moderate-quality";
+            case subject.toLowerCase() == "humidity" && value > 1400:
+                return "low-quality";
+            default:
+                return "low-quality";
+        }
+    }
+
     ngOnInit() {
         // We can subscribe here and turn message$ into a string.
         // Or we can just display the Observable directly in the

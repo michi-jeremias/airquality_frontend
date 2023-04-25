@@ -1,7 +1,15 @@
 <div class="card-container">
     <ng-container *ngIf="data$">
         <mat-card class="card" *ngFor="let datapoint of data$">
-            <mat-card-header>
+            <!-- <mat-card-header
+                [ngClass]="{
+                'high-quality': datapoint.value < 801,
+                'average-quality': datapoint.value < 1001,
+                'moderate-quality': datapoint.value < 1401,
+                'low-quality': datapoint.value < 100000,
+            }"
+            > -->
+            <mat-card-header [ngClass]="getQualityClass(datapoint.subject, datapoint.value)">
                 <mat-card-title class="title-subtitle">
                     {{ datapoint.subject }}
                 </mat-card-title>

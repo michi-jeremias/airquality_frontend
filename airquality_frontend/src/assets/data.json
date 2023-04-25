@@ -7,7 +7,7 @@
     },
     {
         "name": "MH_Z19",
-        "subject": "Temperature",
+        "subject": "temperature",
         "unit": " C",
         "value": 23.0
     },

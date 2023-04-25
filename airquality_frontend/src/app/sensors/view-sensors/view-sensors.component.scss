@@ -17,10 +17,8 @@ mat-card-content {
 .card-container {
 
     font-family: "Unica One", sans-serif;
-    // height: 100vh;
     height: 100%;
     display: flex;
-    // display: block;
     overflow: auto;
     flex-direction: column;
     align-items: center;
@@ -30,4 +28,18 @@ mat-card-content {
     .card {
         max-width: 80%; /* Change to a smaller value if needed */
     }
+}
+
+.high-quality {
+    background-color: rgb(6, 185, 6);
+}
+
+.average-quality {
+    background-color: rgb(151, 179, 64);
+}
+.moderate-quality {
+    background-color: rgb(255, 236, 92);
+}
+.low-quality {
+    background-color: rgb(255, 90, 90);
 }

@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { FetchfileService } from "src/app/fetchfile.service";
+import { FetchfileService } from "src/app/sensors/fetchfile.service";
 
 @Component({
     selector: "app-view-sensors",

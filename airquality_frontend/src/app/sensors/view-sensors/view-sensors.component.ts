@@ -48,7 +48,7 @@ export class ViewSensorsComponent {
             case subject.toLowerCase() == "temperature" && value <= 800:
                 return "high-quality";
             case subject.toLowerCase() == "temperature" && value <= 1000:
-                return "averate-quality";
+                return "average-quality";
             case subject.toLowerCase() == "temperature" && value <= 1400:
                 return "moderate-quality";
             case subject.toLowerCase() == "temperature" && value > 1400:
@@ -56,7 +56,7 @@ export class ViewSensorsComponent {
             case subject.toLowerCase() == "humidity" && value <= 800:
                 return "high-quality";
             case subject.toLowerCase() == "humidity" && value <= 1000:
-                return "averate-quality";
+                return "average-quality";
             case subject.toLowerCase() == "humidity" && value <= 1400:
                 return "moderate-quality";
             case subject.toLowerCase() == "humidity" && value > 1400:

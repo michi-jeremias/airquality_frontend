@@ -1,36 +1,19 @@
 import { Injectable } from "@angular/core";
 import * as socketIO from "socket.io-client";
-import { switchAll } from "rxjs/operators";
-import { of, BehaviorSubject, Observable, Subject, fromEvent, map, catchError } from "rxjs";
-import { webSocket, WebSocketSubject } from "rxjs/webSocket";
+import { Observable, fromEvent } from "rxjs";
 
 @Injectable({
     providedIn: "root",
 })
 export class SocketService {
     private socket;
-    private socket$ = of(socketIO.io("ws://raspberrypi:5000"));
 
     constructor() {
-        this.socket = socketIO.io("http://raspberrypi:5000");
-        this.socket$ = of(this.socket);
+        this.socket = socketIO.io("http://192.168.100.12:5000");
     }
 
-    isConnected(): boolean {
-        console.log(this.socket);
-        return this.socket.connected;
-    }
-
-    sendMessage(message: string) {
-        this.socket.emit("message", message);
-    }
-
-    onMessage() {
-        return fromEvent(this.socket, "message");
-    }
-
-    onData(): Observable<SensorData[]> {
-        return fromEvent(this.socket, "on_data").pipe(map((value: string) => JSON.parse(value)));
+    getData(): Observable<any> {
+        return fromEvent(this.socket, "on_data");
     }
 }
 

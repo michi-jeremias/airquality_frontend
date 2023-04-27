@@ -8,7 +8,7 @@ import { Observable } from "rxjs";
 export class FetchfileService {
     constructor(private httpClient: HttpClient) {}
 
-    getDataFromFile(): Observable<any> {
+    getData(): Observable<any> {
         return this.httpClient.get("assets/data.json", { responseType: "text" });
     }
 }

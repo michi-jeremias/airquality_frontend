@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
 import { FetchfileService } from "src/app/sensors/fetchfile.service";
+import { HttpService } from "src/app/sensors/http.service";
+import { SocketService } from "../socket.service";
 
 @Component({
     selector: "app-view-sensors",
@@ -7,12 +9,18 @@ import { FetchfileService } from "src/app/sensors/fetchfile.service";
     styleUrls: ["./view-sensors.component.scss"],
 })
 export class ViewSensorsComponent {
-    constructor(private fetchfileService: FetchfileService) {}
+    constructor(
+        private fetchfileService: FetchfileService,
+        private httpService: HttpService,
+        private socketService: SocketService
+    ) {}
 
     data$: any;
 
     loadData() {
-        this.fetchfileService.getDataFromFile().subscribe(
+        // this.httpService.getData().subscribe(
+        // this.fetchfileService.getData().subscribe(
+        this.socketService.getData().subscribe(
             (data) => {
                 console.log(`data: ${data}`);
                 this.data$ = JSON.parse(data);
@@ -32,7 +40,7 @@ export class ViewSensorsComponent {
             case subject.toLowerCase() == "co2" && value <= 800:
                 return "high-quality";
             case subject.toLowerCase() == "co2" && value <= 1000:
-                return "averate-quality";
+                return "average-quality";
             case subject.toLowerCase() == "co2" && value <= 1400:
                 return "moderate-quality";
             case subject.toLowerCase() == "co2" && value > 1400:

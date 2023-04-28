@@ -8,11 +8,11 @@
     <ng-container *ngIf="data$">
         <mat-card class="card" *ngFor="let datapoint of data$">
             <mat-card-header [ngClass]="getQualityClass(datapoint.subject, datapoint.value)">
-                <mat-card-title class="title-subtitle">{{ datapoint.subject }} </mat-card-title>
+                <!-- <mat-card-title class="title-subtitle">{{ datapoint.subject }} </mat-card-title> -->
                 <!-- <mat-card-title class="title-subtitle"
                     ><div class="material-symbols-rounded">humidity_percentage</div></mat-card-title
                 > -->
-                <mat-card-subtitle class="title-subtitle"> </mat-card-subtitle>
+                <mat-card-subtitle class="title-subtitle"></mat-card-subtitle>
             </mat-card-header>
             <mat-card-header>
                 <!-- <span class="material-symbols-rounded">humidity_percentage </span> -->

@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
-import { FetchfileService } from "src/app/sensors/fetchfile.service";
-import { HttpService } from "src/app/sensors/http.service";
-import { SocketService } from "../socket.service";
+// import { FetchfileService } from "src/app/sensors/fetchfile.service";
+import { HttpService } from "../http.service";
+// import { SocketService } from "../socket.service";
 
 @Component({
     selector: "app-view-sensors",
@@ -10,9 +10,8 @@ import { SocketService } from "../socket.service";
 })
 export class ViewSensorsComponent {
     constructor(
-        private fetchfileService: FetchfileService,
-        private httpService: HttpService,
-        private socketService: SocketService
+        // private fetchfileService: FetchfileService,
+        private httpService: HttpService // private socketService: SocketService
     ) {}
 
     data$: any;
@@ -20,7 +19,7 @@ export class ViewSensorsComponent {
     loadData() {
         // this.httpService.getData().subscribe(
         // this.fetchfileService.getData().subscribe(
-        this.socketService.getData().subscribe(
+        this.httpService.getData().subscribe(
             (data) => {
                 console.log(`data: ${data}`);
                 this.data$ = JSON.parse(data);

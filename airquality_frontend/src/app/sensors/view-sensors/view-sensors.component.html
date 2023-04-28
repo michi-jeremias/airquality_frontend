@@ -7,7 +7,8 @@
 <div class="card-container">
     <ng-container *ngIf="data$">
         <mat-card class="card" *ngFor="let datapoint of data$">
-            <mat-card-header [ngClass]="getQualityClass(datapoint.subject, datapoint.value)">
+            <!-- <mat-card-header [ngClass]="getQualityClass(datapoint.subject, datapoint.value)"> -->
+            <mat-card-header>
                 <!-- <mat-card-title class="title-subtitle">{{ datapoint.subject }} </mat-card-title> -->
                 <!-- <mat-card-title class="title-subtitle"
                     ><div class="material-symbols-rounded">humidity_percentage</div></mat-card-title

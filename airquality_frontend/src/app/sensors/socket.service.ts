@@ -9,7 +9,6 @@ export class SocketService {
     private socket;
 
     constructor() {
-        // this.socket = socketIO.io("http://192.168.100.12:5000");
         this.socket = socketIO.io("http://192.168.100.173:5000");
     }
 

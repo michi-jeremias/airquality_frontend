@@ -4,6 +4,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0"
     />
 </head>
+<div *ngIf="!connectedToBackend$">Status: not connected</div>
 <div class="card-container">
     <ng-container *ngIf="data$">
         <mat-card class="card" *ngFor="let datapoint of data$">

@@ -15,6 +15,7 @@ export class ViewSensorsComponent {
     ) {}
 
     data$: any;
+    connectedToBackend$: boolean = false;
 
     loadData() {
         // this.httpService.getData().subscribe(
@@ -23,12 +24,15 @@ export class ViewSensorsComponent {
             (data) => {
                 console.log(`data: ${data}`);
                 this.data$ = JSON.parse(data);
+                this.connectedToBackend$ = true;
                 setTimeout(() => {
                     this.loadData();
                 }, 5000);
             },
             (err) => {
                 console.log(err);
+                this.data$ = [];
+                this.connectedToBackend$ = false;
             }
         );
     }

@@ -1,72 +1,118 @@
-mat-card-content {
-    text-align: right;
-    // font-size: 16vh;
-}
+// mat-card-content {
+//     text-align: right;
+//     // font-size: 16vh;
+// }
 
-.card {
-    flex-grow: 1;
-    min-width: 40vh;
-    max-height: 28vh;
-    margin: 1vh;
-    text-align: right;
-}
-
-.title-subtitle {
-    font-size: 2vh;
-    text-align: right;
-}
-
-.card-container {
-
+.sensors {
     font-family: "Unica One", sans-serif;
-    height: 100%;
-    display: flex;
-    // overflow: auto;
-    flex-direction: column;
-    align-items: center;
-    // text-align: right;
 }
+
+// .card {
+//     flex-grow: 1;
+//     min-width: 40vh;
+//     max-height: 28vh;
+//     margin: 1vh;
+//     text-align: right;
+// }
+
+// .title-subtitle {
+//     font-size: 2vh;
+//     text-align: right;
+// }
+
+// .card-container {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-around;
+//     align-items: center;
+//     // justify-content: center;
+
+
+    // height: 100%;
+    // overflow: auto;
+    // align-items: center;
+    // text-align: right;
+// }
 
 @media (max-width: 767px) {
-    .card {
-        max-width: 80%; /* Change to a smaller value if needed */
-    }
+    // .card {
+    //     max-width: 80%; /* Change to a smaller value if needed */
+    // }
+    // .card-container {
+    //     display: flex;
+    //     flex-direction: column;
+    //     justify-content: space-around;
+    // }
 }
 
 .high-quality {
-    background-color: rgb(120, 189, 80);
+    // background-color: rgb(120, 189, 80);
+    border-left: 5px solid rgb(120, 189, 80);
 }
 
 .average-quality {
-    background-color: rgb(196, 184, 99);
+    // background-color: rgb(196, 184, 99);
+    border-left: 5px solid rgb(196, 184, 99);
 }
 .moderate-quality {
-    background-color: rgb(195, 150, 99);
+    // background-color: rgb(195, 150, 99);
+    border-left: 5px solid rgb(195, 150, 99);
 }
 .low-quality {
-    background-color: rgb(207, 122, 122);
+    // background-color: rgb(207, 122, 122);
+    border-left: 5px solid rgb(207, 122, 122);
 }
 
-.material-symbols-rounded {
-    align-items: top;
-    font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 48
-}
+// .material-symbols-rounded {
+//     align-items: top;
+//     font-variation-settings:
+//         'FILL' 0,
+//         'wght' 400,
+//         'GRAD' 0,
+//         'opsz' 48
+// }
 
-.value-unit-container {
+
+
+.flexbox-container {
     display: flex;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+
 }
 
-.sensor-value {
-    font-size: 14vh;
+.flexbox-item {
+    width: 350px;
+    height: 200px;
+    margin: 10px;
+    border: 3px solid #333;
+    background-color: rgb(51, 51, 50);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    // border-top: 5px solid fuchsia;
 }
-.sensor-unit {
-    font-size: 2.5vh;
-    margin-right: 5px;
+
+.flexbox-item-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+}
+
+.flexbox-item-content-1 {
+    font-size: 7rem;
     text-align: right;
-    margin-bottom: 9vh;
+    flex: 5;
+    text-align-last: right;
+}
+
+.flexbox-item-content-2 {
+    font-size: 2rem;
+    text-align: left;
+    flex: 1;
+    text-align-last: left;
+    vertical-align: top;
 }
